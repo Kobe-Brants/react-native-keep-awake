@@ -1,12 +1,16 @@
 import { Text, View, StyleSheet } from 'react-native';
-import { multiply } from 'react-native-keep-awake';
-
-const result = multiply(3, 7);
+import keepAwake from 'react-native-keep-awake';
+import { useEffect } from 'react';
 
 export default function App() {
+  useEffect(() => {
+    keepAwake.activate();
+    return keepAwake.deactivate;
+  }, []);
+
   return (
     <View style={styles.container}>
-      <Text>Result: {result}</Text>
+      <Text>Result: Keep awake</Text>
     </View>
   );
 }
