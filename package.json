@@ -1,6 +1,6 @@
 {
-  "name": "react-native-keep-awake",
-  "version": "0.1.0",
+  "name": "@kobe-brants/react-native-keep-awake",
+  "version": "1.0.16",
   "description": "Keep device screen awake for React Native",
   "source": "./src/index.tsx",
   "main": "./lib/commonjs/index.js",
@@ -43,7 +43,8 @@
     "lint": "eslint \"**/*.{js,ts,tsx}\"",
     "clean": "del-cli android/build example/android/build example/android/app/build example/ios/build lib",
     "prepare": "bob build",
-    "release": "release-it"
+    "release": "release-it",
+    "publish": "npm publish --access public"
   },
   "keywords": [
     "react-native",
@@ -54,7 +55,7 @@
     "type": "git",
     "url": "git+https://github.com/Kobe-Brants/react-native-keep-awake.git"
   },
-  "author": "Kobe Brants <kobe.brants@telenet.be> (https://github.com/Kobe-Brants/react-native-keep-awake)",
+  "author": "Kobe Brants <kobe.brants@telenet.be> (https://github.com/Kobe-Brants)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Kobe-Brants/react-native-keep-awake/issues"
@@ -78,8 +79,8 @@
     "eslint-plugin-prettier": "^5.0.1",
     "jest": "^29.7.0",
     "prettier": "^3.0.3",
-    "react": "19.0.0",
-    "react-native": "0.78.0",
+    "react": "18.3.1",
+    "react-native": "0.77.1",
     "react-native-builder-bob": "^0.37.0",
     "release-it": "^17.10.0",
     "turbo": "^1.10.7",

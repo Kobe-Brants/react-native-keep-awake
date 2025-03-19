@@ -1,9 +1,5 @@
-#ifdef __cplusplus
-#import "react-native-keep-awake.h"
-#endif
+#import <React/RCTBridgeModule.h>
+#import <React/RCTViewManager.h>
 
-#import "generated/RNKeepAwakeSpec/RNKeepAwakeSpec.h"
-
-@interface KeepAwake : NSObject <NativeKeepAwakeSpec>
-
+@interface KeepAwake : NSObject <RCTBridgeModule>
 @end

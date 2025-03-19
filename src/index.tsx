@@ -1,5 +1,26 @@
-import KeepAwake from './NativeKeepAwake';
+import { NativeModules } from 'react-native';
 
-export function multiply(a: number, b: number): number {
-  return KeepAwake.multiply(a, b);
+const { KeepAwake } = NativeModules;
+
+// Create a React component for declarative usage
+import { Component } from 'react';
+
+class KeepAwakeComponent extends Component {
+  componentDidMount() {
+    KeepAwake.activate();
+  }
+
+  componentWillUnmount() {
+    KeepAwake.deactivate();
+  }
+
+  render() {
+    return null;
+  }
 }
+
+export default {
+  activate: () => KeepAwake.activate(),
+  deactivate: () => KeepAwake.deactivate(),
+  KeepAwake: KeepAwakeComponent,
+};

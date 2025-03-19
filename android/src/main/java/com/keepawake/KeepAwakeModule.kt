@@ -1,20 +1,38 @@
 package com.keepawake
 
+import android.app.Activity
+import android.view.WindowManager
 import com.facebook.react.bridge.ReactApplicationContext
+import com.facebook.react.bridge.ReactContextBaseJavaModule
+import com.facebook.react.bridge.ReactMethod
 import com.facebook.react.module.annotations.ReactModule
 
 @ReactModule(name = KeepAwakeModule.NAME)
-class KeepAwakeModule(reactContext: ReactApplicationContext) :
-  NativeKeepAwakeSpec(reactContext) {
+class KeepAwakeModule(private val reactContext: ReactApplicationContext) :
+    ReactContextBaseJavaModule(reactContext) {
 
   override fun getName(): String {
     return NAME
   }
 
-  // Example method
-  // See https://reactnative.dev/docs/native-modules-android
-  override fun multiply(a: Double, b: Double): Double {
-    return a * b
+  @ReactMethod
+  fun activate() {
+    val activity = reactContext.currentActivity
+    if (activity != null) {
+      activity.runOnUiThread {
+        activity.window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+      }
+    }
+  }
+
+  @ReactMethod
+  fun deactivate() {
+    val activity = reactContext.currentActivity
+    if (activity != null) {
+      activity.runOnUiThread {
+        activity.window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
+      }
+    }
   }
 
   companion object {

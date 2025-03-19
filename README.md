@@ -5,18 +5,22 @@ Keep device screen awake for React Native
 ## Installation
 
 ```sh
-npm install react-native-keep-awake
+npm install @kobe-brants/react-native-keep-awake
 ```
 
 ## Usage
 
 
 ```js
-import { multiply } from 'react-native-keep-awake';
+import KeepAwake from '@kobe-brants/react-native-keep-awake';
 
-// ...
+useEffect(() => {
+  KeepAwake.activate();
 
-const result = multiply(3, 7);
+  return () => {
+    KeepAwake.deactivate();
+  };
+}, []);
 ```
 
 
